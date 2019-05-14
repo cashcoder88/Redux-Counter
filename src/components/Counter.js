@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
-import { increment, decrement } from '../actions';
+import { timesTwo, increment, decrement, divideTwo, timesNinetyNine } from '../actions';
 
 class Counter extends Component {
     incrementIfOdd = () => {
@@ -20,11 +20,20 @@ class Counter extends Component {
         return (
             <p>
                 Clicked: {this.props.count} times
-                <button onClick={() => {/* Fill me in */ }}>
+                <button onClick={() => {this.props.increment(this.props.count)}}>
                     +
                 </button>
-                <button onClick={() => {/* Fill me in */ }}>
+                <button onClick={() => {this.props.decrement(this.props.count)}}>
                     -
+                </button>
+                <button onClick={() => {this.props.timesTwo(this.props.count)}}>
+                    x 2
+                </button>
+                <button onClick={() => {this.props.divideTwo(this.props.count)}}>
+                    / 2
+                </button>
+                <button onClick={() => {this.props.timesNinetyNine(this.props.count)}}>
+                    * 99
                 </button>
                  {/* Uncomment these button tags if you got
                 around to implementing the extra credit functions */}
@@ -45,15 +54,23 @@ class Counter extends Component {
 // this component receives the whole state. In a more complex
 // redux application, though, it would receive only the relevant
 // parts it needs from the state object.
+// const mapStateToProps = (state) => {
+//     return {
+//         count: state.count
+//     };
+// };
+
 const mapStateToProps = (state) => {
     return {
         count: state.count
     };
-};
+}
 
 // The connect function is called in order to make this component aware
 // of the rest of the redux architecture. Without this, this component
 // is only a dumb React component. We pass in all of the functions that
 // are reliant on Redux, along with the component itself, so that Redux
 // makes itself known to this component.
-export default connect(mapStateToProps, { increment, decrement })(Counter);
+// export default connect(mapStateToProps, { increment, decrement })(Counter);
+
+export default connect(mapStateToProps, {increment, decrement, timesTwo, timesNinetyNine, divideTwo})(Counter);

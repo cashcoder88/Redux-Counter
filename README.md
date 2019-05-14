@@ -20,7 +20,7 @@ In this Project, you'll be eased into the code base of a small Redux application
 
 * To run the project code, use the command `yarn` from the root directory to install your `node_modules`. Then `yarn start`. You'll see that the application isn't working.
 * There are a couple of spots in the application where you'll need to write the code to get the application functional.
-* These spots are in `reducers/index.js`, `actions/index.js`, and `components/Counter.js`.
+* These spots are in `[] reducers/index.js`, `[] actions/index.js`, and `[]components/Counter.js`.
 
 The code is pretty heavily commented. This is to help clear up everything that is going on with the code you have been provided.
 
